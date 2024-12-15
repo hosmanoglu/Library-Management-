@@ -9,7 +9,7 @@ This project is a library management system API. Users can borrow, return, and v
 
 1. **Clone the repository:**
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/hosmanoglu/library-manager
     cd <repository-directory>
     ```
 
