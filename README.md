@@ -35,21 +35,21 @@ This project is a library management system API. Users can borrow, return, and v
     ```
 
 ## Running the Application with Docker
-    ```bash
-docker-compose build
-docker-compose up
-   ```
+     ```
+    docker-compose build
+    docker-compose up
+     ```
 
 ## Running Postman Tests with Newman
 ### Prerequisites
 Ensure you have Newman installed. You can install Newman globally using npm:
 
-```sh
-npm install -g newman
-```
+    ```
+    npm install -g newman
+    ```
 ### Running Tests
 
-```sh
+```
 newman run collections/testCollection.postman_collection.json
 ```
 
