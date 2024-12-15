@@ -10,7 +10,7 @@ This project is a library management system API. Users can borrow, return, and v
 1. **Clone the repository:**
     ```bash
     git clone https://github.com/hosmanoglu/library-manager
-    cd <repository-directory>
+    cd library-manager
     ```
 
 2. **Install the necessary packages:**
