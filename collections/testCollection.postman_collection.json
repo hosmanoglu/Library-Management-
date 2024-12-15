@@ -1,0 +1,598 @@
+{
+	"info": {
+		"_postman_id": "257cd417-58a3-49fe-a065-7923d2ac189c",
+		"name": "testCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19226474"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    const expectedValue = 201;\r",
+							"    const actualValue = pm.response.code;\r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Esin Öner\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User no name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue = 400; \r",
+							"    const actualValue = pm.response.code\r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    const expectedValue = 201;\r",
+							"    const actualValue = pm.response.code;\r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Neuromancer\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Book noname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue = 400; \r",
+							"    const actualValue = pm.response.code\r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue = true;\r",
+							"    const actualValue = Array.isArray(pm.response.json())\r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"     pm.collectionVariables.set(\"userId\", pm.response.json()[0].id);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Books",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue = true;\r",
+							"    const actualValue = Array.isArray(pm.response.json())\r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"    pm.collectionVariables.set(\"bookId\", pm.response.json()[0].id);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrow Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue = 204; \r",
+							"    const actualValue = pm.response.code\r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/{{userId}}/borrow/{{bookId}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"{{userId}}",
+						"borrow",
+						"{{bookId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrow Book already borrowed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue = \"Book already borrowed\"; \r",
+							"    const actualValue = pm.response.json().message\r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/{{userId}}/borrow/{{bookId}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"{{userId}}",
+						"borrow",
+						"{{bookId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue = 204; \r",
+							"    const actualValue = pm.response.code\r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"score\": 9\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/users/{{userId}}/return/{{bookId}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"{{userId}}",
+						"return",
+						"{{bookId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return Boo view not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue = \"Book view not found\"; \r",
+							"    const actualValue = pm.response.json().message\r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"score\": 9\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/users/{{userId}}/return/{{bookId}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"{{userId}}",
+						"return",
+						"{{bookId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue = pm.collectionVariables.get(\"userId\")\r",
+							"    const actualValue = pm.response.json().user.id; \r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/{{userId}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue =\"User not found\"\r",
+							"    const actualValue = pm.response.json().message; \r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/5555",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"5555"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue = pm.collectionVariables.get(\"bookId\")\r",
+							"    const actualValue = pm.response.json().id; \r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/books/{{bookId}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"{{bookId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response check\", function () {\r",
+							"    const expectedValue =\"Book not found\"\r",
+							"    const actualValue = pm.response.json().message; \r",
+							"\r",
+							"    pm.expect(actualValue).to.eql(expectedValue);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/books/5555",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"5555"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "userId",
+			"value": ""
+		},
+		{
+			"key": "bookId",
+			"value": ""
+		}
+	]
+}
